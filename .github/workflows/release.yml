@@ -34,3 +34,12 @@ jobs:
         run: curl "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/download/${GITHUB_REF_NAME}/react-test-${GITHUB_REF_NAME/v}.tar.gz" --output react-test.tar.gz
       - name: List
         run: ls -altr
+      - name: Download with action
+        uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          version: "tags/${GITHUB_REF_NAME"
+          regex: true
+          file: "react-test-.*\\.tar.gz"
+          target: 'subdir/plague-linux.zip'
+      - name: List
+        run: ls -altr
