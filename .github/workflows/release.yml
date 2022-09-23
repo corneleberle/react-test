@@ -7,22 +7,30 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    env:
+      VERSION: v1.10.1
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 'lts/*'
-      - name: Install dependencies
-        run: npm ci
-      - name: Create production build
-        run: npm run build
-      - name: Create archive
-        run: tar -czf react-test.tar.gz --directory ./build .
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: npx semantic-release
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#        with:
+#          fetch-depth: 0
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v2
+#        with:
+#          node-version: 'lts/*'
+#      - name: Install dependencies
+#        run: npm ci
+#      - name: Create production build
+#        run: npm run build
+#      - name: Create archive
+#        run: tar -czf react-test.tar.gz --directory ./build .
+#      - name: Release
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+#        run: npx semantic-release
+      - name: Show URL
+        run: echo "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/download/${GITHUB_REF_NAME}/react-test-${GITHUB_REF_NAME/v}.tar.gz"
+      - name: Download release archive
+        run: curl "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/download/${GITHUB_REF_NAME}/react-test-${GITHUB_REF_NAME/v}.tar.gz" --output react-test.tar.gz
+      - name: List
+        run: ls -altr
