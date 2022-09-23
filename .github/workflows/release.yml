@@ -29,9 +29,9 @@ jobs:
 #          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 #        run: npx semantic-release
       - name: Show URL
-        run: echo "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/download/${GITHUB_REF_NAME}/react-test-${GITHUB_REF_NAME/v}.tar.gz"
+        run: echo "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/download/${VERSION}/react-test-${VERSION/v}.tar.gz"
       - name: Download release archive
-        run: curl "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/download/${GITHUB_REF_NAME}/react-test-${GITHUB_REF_NAME/v}.tar.gz" --output react-test.tar.gz
+        run: curl "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/download/${VERSION}/react-test-${VERSION/v}.tar.gz" --output react-test.tar.gz
       - name: List
         run: ls -altr
       - name: Download with action
