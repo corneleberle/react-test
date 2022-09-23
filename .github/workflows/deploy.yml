@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Deploy release to test
         run: echo "Deploy release to test ${GITHUB_REF} / ${GITHUB_REF_NAME}"
+      - name: Show URL
+        run: echo "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/download/${GITHUB_REF_NAME}/react-test.tar.gz"
       - name: Download release archive
         run: curl "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/download/${GITHUB_REF_NAME}/react-test.tar.gz" --output react-test.tar.gz
       - name: Unarchive
