@@ -57,7 +57,7 @@
       [
         "@semantic-release/exec",
         {
-          "prepareCmd": "mv react-test.tar.gz react-test-v${nextRelease.version}.tar.gz"
+          "prepareCmd": "mv react-test.tar.gz react-test-${nextRelease.version}.tar.gz"
         }
       ],
       [
