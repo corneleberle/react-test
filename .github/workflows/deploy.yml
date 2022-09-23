@@ -9,4 +9,4 @@ jobs:
     environment: TEST
     steps:
       - name: Deploy release to test
-        run: echo "Deploy release to test ${GITHUB_REF}"
+        run: echo "Deploy release to test ${GITHUB_REF} / ${GITHUB_REF_NAME}"
