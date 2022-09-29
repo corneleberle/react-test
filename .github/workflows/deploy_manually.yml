@@ -11,7 +11,7 @@ jobs:
       - name: Show URL
         run: echo "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/download/${GITHUB_REF_NAME}/react-test-${GITHUB_REF_NAME/v}.tar.gz"
       - name: Download release archive
-        run: curl "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/download/${GITHUB_REF_NAME}/react-test-${GITHUB_REF_NAME/v}.tar.gz" --output react-test.tar.gz
+        run: curl "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/download/${GITHUB_REF_NAME}/react-test-${GITHUB_REF_NAME/v}.tar.gz" --location --output react-test.tar.gz
       - name: List
         run: ls -altr
       - name: Unarchive
